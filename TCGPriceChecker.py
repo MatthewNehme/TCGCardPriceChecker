@@ -67,14 +67,14 @@ def scrape_card_data(card, condition_filter, output_box):
             for entry in sales_data:
                 output_box.insert(tk.END, f"Date: {entry['date']} | Condition: {entry['condition']} | Price: {entry['price']}\n")
                 count += 1
-                if count > 8:
+                if count > MAX_SALE_RESULTS:
                     break
         else:
             for entry in sales_data:
                 if entry['condition'].upper() == condition_filter.upper()   :
                     output_box.insert(tk.END, f"Date: {entry['date']} | Condition: {entry['condition']} | Price: {entry['price']}\n")
                     count += 1
-                if count > 8:
+                if count > MAX_SALE_RESULTS:
                     break
         
 
@@ -94,14 +94,14 @@ def change_condition(condition, output_box):
         for entry in sales_data:
             output_box.insert(tk.END, f"Date: {entry['date']} | Condition: {entry['condition']} | Price: {entry['price']}\n")
             count += 1
-            if count > 8:
+            if count > MAX_SALE_RESULTS:
                 break
     else:
         for entry in sales_data:
             if entry['condition'].upper() == condition:
                 output_box.insert(tk.END, f"Date: {entry['date']} | Condition: {entry['condition']} | Price: {entry['price']}\n")
                 count += 1
-            if count > 8:
+            if count > MAX_SALE_RESULTS:
                 break
 
 
@@ -115,6 +115,7 @@ def on_submit(card_entry, output_box):
 
 sales_data = []
 card_condition = ''
+MAX_SALE_RESULTS = 14
 
 root = tk.Tk()
 root.title("TCGPlayer Card Price Checker")
