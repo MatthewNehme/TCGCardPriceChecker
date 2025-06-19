@@ -8,7 +8,7 @@ This is a Python desktop GUI tool that uses **Selenium** and **BeautifulSoup** t
 
 - GUI built with **Tkinter**
 - Pulls **market price** and **recent sales history**
-- Optional condition filtering (case-insensitive)
+- Optional condition filtering for dynamic sales history
 - Automatically limits results to 9 rows
 - Multithreaded scraping to keep GUI responsive
 
